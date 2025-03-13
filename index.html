@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем Chart.js с CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header>
+        <button id="theme-toggle" aria-label="Toggle Theme">
+            <span class="icon">☀️</span>
+        </button>
+    </header>
+    <main class="container">
+        <h1>Carbon Footprint Calculator</h1>
+        <p>Answer a few questions to estimate your carbon footprint and get tips to reduce it.</p>
+        
+        <div class="carbon-calculator">
+            <form id="carbon-form" class="form-group">
+                <label for="meat">How many meat meals per week? (0-20):</label>
+                <input type="number" id="meat" min="0" max="20" value="0" required>
+
+                <label for="car">Car usage (km per week):</label>
+                <input type="number" id="car" min="0" value="0" required>
+
+                <label for="flights">Short-haul flights per year (under 3 hours):</label>
+                <input type="number" id="flights" min="0" value="0" required>
+
+                <label for="long-flights">Long-haul flights per year (over 3 hours):</label>
+                <input type="number" id="long-flights" min="0" value="0" required>
+
+                <label for="electricity">Monthly electricity usage (kWh):</label>
+                <input type="number" id="electricity" min="0" value="0" required>
+
+                <button type="submit" class="calculate-btn">Calculate</button>
+            </form>
+            <div class="results" id="results" style="display: none;">
+                <h2>Your Carbon Footprint: <span id="total-co2">0</span> tons CO₂/year</h2>
+                <canvas id="carbon-chart" width="300" height="300"></canvas>
+                <table class="carbon-table">
+                    <thead>
+                        <tr>
+                           <th>Category</th>
+                            <th>CO₂ (tons/year)</th>
+                            <th>Tips to Reduce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carbon-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+        
+        <p>Want to see the code? Check it out on GitHub: <a href="https://github.com/example/carbon-footprint-calculator" target="_blank">https://github.com/example/carbon-footprint-calculator</a></p>
+        <p class="note">Note: Replace the link above with your own GitHub repository URL in the HTML file (search for "https://github.com/example/carbon-footprint-calculator").</p>
+    </main>
+    
+    <footer class="footer">
+        <div class="social">
+            <img src="https://cdn3d.iconscout.com/3d/free/thumb/free-twitter-x-3d-icon-download-in-png-blend-fbx-gltf-file-formats--logo-network-social-media-pack-logos-icons-8050016.png?f=webp" alt="Twitter Icon" class="twitter-icon">
+            <div>
+                <a href="https://twitter.com/HotDog850642" target="_blank">@HotDog850642</a>
+                <p>I'm a code developer. Feel free to reach out!</p>
+            </div>
+        </div>
+        <div class="donation">
+            <h3>For voluntary donations</h3>
+            <div class="btc-address">
+                <span id="btc-code">bc1q3r5gad7dxc276ael06n02gek7ncm536hpndgmq</span>
+                <button class="copy-btn" data-target="btc-code">Copy</button>
+            </div>
+            <p class="thanks">Thank you for your support!</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
